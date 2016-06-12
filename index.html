@@ -1,0 +1,38 @@
+<html ng-app="Patriot">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel='stylesheet' href='app/css/main.css'>
+	</head>
+		<nav class='navbar navbar-default navbar-fixed-top' ng-controller='NavigationController'>
+			<div class='container'>
+				<div ng-show='!loggedIn'> 
+					<input type='text' ng-model='login.email' 
+					<input type='password' ng-model='login.password'> 
+					<button ng-click='LogUserIn()'>Login</button>
+					<a ui-sref='signup'> Create an account </a>
+				</div>
+				<div ng-show='loggedIn'>
+					<a ui-sref='editProfile'> Edit your Profile </a>
+				</div>
+			</div>
+		</nav>
+	<body>
+		<div ui-view></div>
+	</body>
+
+
+			
+		<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'></script>
+	<script type="text/javascript" src='app/app.js'></script>
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js'></script>
+	<script src='app/signup/signup-controller.js'></script>
+	<script src='app/navigation/navigation-controller.js'></script>
+	<script src='app/profile/edit-profile-controller.js'></script>
+
+	<!-- Libraries -->
+	<script type="text/javascript" src='node_modules/ng-file-upload/dist/ng-file-upload.js'></script>
+	<script type="text/javascript" src='node_modules/ng-file-upload/dist/ng-file-upload-all.js'></script>
+	<script type="text/javascript" src='node_modules/ng-file-upload/dist/ng-file-upload-shim.js'></script>
+
+
+</html>
