@@ -4,7 +4,7 @@
 		,$scope, $state, $http){
 
 			$scope.user = JSON.parse(localStorage['User-Data']) || undefined;
-
+			console.log($scope.user);
 			$scope.$watch(function(){
 				return $scope.file
 			}, function(){
@@ -16,8 +16,8 @@
 					Upload.upload({
 						url: 'api/profile/editPhoto',
 						method: 'POST',
-						data: {userId : $scope.user_id},
-						files: file
+						data: {userId : $scope.user.id},
+						file: file
 					}).progress(function(event){
 						console.log('firing');
 					}).success(function(data){

@@ -10,6 +10,7 @@ var profileController = require('./server/controllers/profile-controller');
 mongoose.connect('mongodb://localhost:27017/patriot-world');
 
 app.use(bodyParser.json());
+app.use(multipartMiddleware);
 app.use('/app', express.static(__dirname + "/app"));
 app.use('/node_modules', express.static(__dirname + "/node_modules"));
 
