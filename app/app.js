@@ -8,7 +8,8 @@
 				})
 				.state("home", {
 					url: '/home',
-					templateUrl: 'app/home/logged-in-home-view.html'
+					templateUrl: 'app/home/logged-in-home-view.html',
+					controller: 'HomeController'
 				})
 				.state("signup", {
 					url: '/signup',
@@ -20,5 +21,10 @@
 					templateUrl: 'app/profile/edit-profile-view.html',
 					controller: 'EditProfileController'
 				})		
+				.state('createPost', {
+					url: '/create-post',
+					templateUrl: 'app/posts/create-post-view.html',
+					controller: 'PostController'	
+				})
 		})
 }());

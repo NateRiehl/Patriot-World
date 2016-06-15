@@ -28,6 +28,12 @@ app.post('/api/profile/editPhoto', multipartMiddleware, profileController.update
 app.post('/api/profile/updateUsername', profileController.updateUsername);
 app.post('/api/profile/updateBio', profileController.updateBio);
 
+
+//Posts
+app.post('/api/posts/create', authenticationController.createPost);
+app.get('/api/posts', authenticationController.getPosts);
+	
+
 app.listen('3000', function(){
 	console.log("Listening for localhost:3000");
 });

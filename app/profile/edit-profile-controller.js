@@ -2,9 +2,7 @@
 	angular.module('Patriot')
 	.controller('EditProfileController', ['Upload', '$scope', '$state', '$http', function(Upload
 		,$scope, $state, $http){
-
 			$scope.user = JSON.parse(localStorage['User-Data']) || undefined;
-			console.log($scope.user);
 			$scope.$watch(function(){
 				return $scope.file
 			}, function(){

@@ -1,1 +1,7 @@
-<a class="twitter-grid" href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<button ui-sref='createPost' class="btn btn-primary">Create a new post</button>
+<div ng-repeat="post in posts"> 
+	<div class='jumbotron'>
+	<p class="text-center"> {{post.title}}  </p>
+	<p class="text-center"> {{post.body}}  </p>
+</div>
+</div>
