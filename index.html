@@ -8,16 +8,19 @@
 				<div ng-show='!loggedIn'> 
 					<input type='text' ng-model='login.email' 
 					<input type='password' ng-model='login.password'> 
-					<button ng-click='LogUserIn()'>Login</button>
+					<button ng-click='LogUserIn()' ui-sref='home' class="btn btn-primary">Login</button>
 					<a ui-sref='signup'> Create an account </a>
 				</div>
 				<div ng-show='loggedIn'>
+					<button ng-click='LogUserOut()' class="btn btn-primary">Logout</button>
 					<a ui-sref='editProfile'> Edit your Profile </a>
 				</div>
 			</div>
 		</nav>
 	<body>
-		<div ui-view></div>
+		<div ui-view>
+			Home
+		</div>
 	</body>
 
 

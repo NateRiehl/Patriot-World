@@ -16,5 +16,10 @@
 				console.log(error);
 			});
 		}
+		$scope.LogUserOut = function(){
+			localStorage.clear();
+			$scope.loggedIn = false;
+			$state.go('default');
+		}
 	}])
 }());
