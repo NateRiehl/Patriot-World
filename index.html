@@ -6,21 +6,28 @@
 		<nav class='navbar navbar-default navbar-fixed-top' ng-controller='NavigationController'>
 			<div class='container'>
 				<div ng-show='!loggedIn'> 
-					<input type='text' ng-model='login.email' 
-					<input type='password' ng-model='login.password'> 
-					<button ng-click='LogUserIn()' ui-sref='home' class="btn btn-primary">Login</button>
-					<a ui-sref='signup'> Create an account </a>
+					<ul class="nav navbar-nav navbar-left">
+						<li><input type='text' ng-model='login.email'> </li>
+						<li><input type='password' ng-model='login.password'> </li>
+						<li><button ng-click='LogUserIn()' ui-sref='home' class="btn btn-primary">Login</button></li>
+						<li><a ui-sref='signup'> Create an account </a></li>
+					</ul>
 				</div>
 				<div ng-show='loggedIn'>
-					<button ng-click='LogUserOut()' class="btn btn-primary">Logout</button>
-					<a ui-sref='editProfile'> Edit your Profile </a>
-					<a ui-sref='home'> Home</a>
+					<ul class="nav navbar-nav navbar-left">
+						<li><button ng-click='LogUserOut()' class="btn btn-primary">Logout</button></li>
+						<li><a ui-sref='editProfile'> Edit your Profile </a></li>
+						<li><a ui-sref='home'> Home</a></li>
+						<button ui-sref='createPost' class="btn btn-primary">Create a new post</button>
+					</ul>
 				</div>
 			</div>
 		</nav>
 	<body>
-		<div ui-view>
-			Home
+		<div class='container'>
+			<div ui-view>
+				Home
+			</div>
 		</div>
 	</body>
 
