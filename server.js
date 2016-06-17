@@ -32,7 +32,7 @@ app.post('/api/profile/updateBio', profileController.updateBio);
 //Posts
 app.post('/api/posts/create', authenticationController.createPost);
 app.get('/api/posts', authenticationController.getPosts);
-	
+app.post('/api/posts/upvote', authenticationController.upvote);
 
 app.listen('3000', function(){
 	console.log("Listening for localhost:3000");

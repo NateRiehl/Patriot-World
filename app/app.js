@@ -26,5 +26,13 @@
 					templateUrl: 'app/posts/create-post-view.html',
 					controller: 'PostController'	
 				})
+				.state('my-post', {
+					url: '/post?:title:body',
+					templateUrl: 'app/posts/post.html',
+					params: {
+						title: null
+					},
+					controller: 'PostController'		
+  			})
 		})
 }());

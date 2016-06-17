@@ -39,3 +39,22 @@ module.exports.getPosts = function(req, res){
         }	
 	});
 }
+
+
+module.exports.upvote = function(req, res){
+	var postId = req.body._id;
+	Post.findById(postId, function(err, postData){
+		var post = postData;
+		post.votes += 1;
+		post.save(function(err){
+			if(err){
+				console.log('Fail');
+				res.json({status:500});
+			}
+			else{
+                console.log("save successful");                   
+                res.json({status: 200})
+            }
+		});
+	});
+}
