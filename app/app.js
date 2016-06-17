@@ -27,10 +27,12 @@
 					controller: 'PostController'	
 				})
 				.state('my-post', {
-					url: '/post?:title:body',
+					url: '/post?:id',
 					templateUrl: 'app/posts/post.html',
 					params: {
-						title: null
+						title: null,
+						body: null,
+						id: null
 					},
 					controller: 'PostController'		
   			})

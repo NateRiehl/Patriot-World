@@ -15,6 +15,16 @@ module.exports.createPost = function(req, res){
 	console.log('here');
 }
 
+module.exports.createComment = function(req, res){
+	console.log(req.body.id);
+	var body = req.body.comment;
+	var id = req.body.id;
+	var comment = {'body' : body};
+	Post.update({_id: id },
+         {$push: { 'comments' : comment }},{upsert:true}, function(err, data) { 
+});
+}
+
 module.exports.login = function(req, res){
 	User.find(req.body, function(err, results){
 		if (err){
@@ -33,6 +43,18 @@ module.exports.getPosts = function(req, res){
 	return Post.find( function( err, posts ) {
         if( !err ) {
             res.json(posts);
+        } 
+        else {
+            return console.log( err );
+        }	
+	});
+}
+
+module.exports.getPost = function(req, res){
+	console.log(req.query.id);
+	return Post.findById(req.query.id, function( err, post ) {
+        if( !err ) {
+            res.json(post);
         } 
         else {
             return console.log( err );

@@ -1,7 +1,14 @@
 var mongoose = require('mongoose');
+
 module.exports = mongoose.model('Post', {
 	title : String,
 	author : String, 
 	body : String,
-	votes : { type: Number, default: 0 }
+	votes : { type: Number, default: 0 },
+	comments : [{
+		author: String,
+		body: String
+	}]
 });
+
+

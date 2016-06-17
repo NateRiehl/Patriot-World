@@ -1,4 +1,13 @@
-<div class='row'>
-	<p> <strong>{{title}}</strong> </p>
-	<p> {{body}} </p>
+<div class='col-sm-8 col-sm-offset-2'>
+	<div class='row'>
+	<p> <strong>{{post.title}}</strong> </p>
+	<p> {{post.body}} </p>
+
+	<input type='text' ng-blur='createComment(post._id)' ng-model='comment'> Write a comment </input>
+		<div ng-repeat='comment in post.comments'>
+			<p>
+				Comment: {{comment.body}}
+			</p>
+		</div>	
+	</div>
 </div>

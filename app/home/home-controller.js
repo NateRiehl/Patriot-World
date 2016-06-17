@@ -3,7 +3,8 @@
 	.controller('HomeController', ['$scope', '$http', '$state', '$stateParams', function($scope, $http, $state, $stateParams){
 		
 		$http.get('api/posts').then(function(res){
-          $scope.posts = res.data;              
+          $scope.posts = res.data; 
+          console.log($scope.posts);             
         });
 
         $scope.upvote = function(post){

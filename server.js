@@ -31,7 +31,9 @@ app.post('/api/profile/updateBio', profileController.updateBio);
 
 //Posts
 app.post('/api/posts/create', authenticationController.createPost);
+app.post('/api/posts/createComment', authenticationController.createComment);
 app.get('/api/posts', authenticationController.getPosts);
+app.get('/api/posts/post', authenticationController.getPost);
 app.post('/api/posts/upvote', authenticationController.upvote);
 
 app.listen('3000', function(){
