@@ -30,8 +30,6 @@
 					url: '/post?:id',
 					templateUrl: 'app/posts/post.html',
 					params: {
-						title: null,
-						body: null,
 						id: null
 					},
 					controller: 'PostController'		

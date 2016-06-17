@@ -7,6 +7,7 @@ var multipartMiddleware = multipart();
 var app = express();
 var authenticationController = require('./server/controllers/authentication-controller');
 var profileController = require('./server/controllers/profile-controller');
+var postController = require('./server/controllers/post-controller');
 mongoose.connect('mongodb://localhost:27017/patriot-world');
 
 app.use(bodyParser.json());
@@ -30,11 +31,11 @@ app.post('/api/profile/updateBio', profileController.updateBio);
 
 
 //Posts
-app.post('/api/posts/create', authenticationController.createPost);
-app.post('/api/posts/createComment', authenticationController.createComment);
-app.get('/api/posts', authenticationController.getPosts);
-app.get('/api/posts/post', authenticationController.getPost);
-app.post('/api/posts/upvote', authenticationController.upvote);
+app.post('/api/posts/create', postController.createPost);
+app.post('/api/posts/createComment', postController.createComment);
+app.get('/api/posts', postController.getPosts);
+app.get('/api/posts/post', postController.getPost);
+app.post('/api/posts/upvote', postController.upvote);
 
 app.listen('3000', function(){
 	console.log("Listening for localhost:3000");
