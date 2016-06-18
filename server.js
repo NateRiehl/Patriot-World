@@ -3,8 +3,14 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
+var path = require('path');
 
 var app = express();
+//static
+app.use(express.static(path.resolve('./public')));
+app.use('/images',express.static(path.resolve('/public/images')));
+
+
 var authenticationController = require('./server/controllers/authentication-controller');
 var profileController = require('./server/controllers/profile-controller');
 var postController = require('./server/controllers/post-controller');
@@ -36,6 +42,7 @@ app.post('/api/posts/createComment', postController.createComment);
 app.get('/api/posts', postController.getPosts);
 app.get('/api/posts/post', postController.getPost);
 app.post('/api/posts/upvote', postController.upvote);
+app.post('/api/posts/remove', postController.removePost);
 
 app.listen('3000', function(){
 	console.log("Listening for localhost:3000");

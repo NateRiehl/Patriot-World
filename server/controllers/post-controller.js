@@ -10,6 +10,18 @@ module.exports.createPost = function(req, res){
 	console.log('here');
 }
 
+module.exports.removePost = function(req, res){
+	var postId = req.body._id;
+	Post.remove({ _id: postId }, function(err) {
+    if (!err) {
+            
+    }
+    else {
+          
+    }
+});
+}
+
 module.exports.createComment = function(req, res){
 	console.log(req.body.id);
 	var body = req.body.comment;
@@ -32,7 +44,7 @@ module.exports.getPosts = function(req, res){
 }
 
 module.exports.getPost = function(req, res){
-	console.log(req.query.id);
+	//console.log(req.query.id);
 	return Post.findById(req.query.id, function( err, post ) {
         if( !err ) {
             res.json(post);

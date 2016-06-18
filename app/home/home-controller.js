@@ -14,6 +14,14 @@
 
         	});
         }
+
+        $scope.remove = function(post){
+        	$http.post('api/posts/remove', post).success(function(response){
+
+        	}).error(function(err){
+
+        	});
+        }
 	}]);
 }());
 
