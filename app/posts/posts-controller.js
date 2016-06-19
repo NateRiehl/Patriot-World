@@ -8,7 +8,6 @@
         	});
 		}
 		var test = localStorage.getItem('User-Data');
-		console.log(JSON.parse(test).id);
 			$scope.createNewPost = function(){
 			
 			$scope.post.author = JSON.parse(localStorage.getItem('User-Data')).id; //Add user's id
@@ -26,6 +25,18 @@
 				id : id
 			}
 			$http.post('api/posts/createComment', request).success(function(response){
+			}).error(function(err){
+				console.log(err);
+			})
+		}
+
+		$scope.reply = function(postId, commentId, replyText){
+			var request = {
+				reply : replyText,
+				commentId : commentId,
+				postId : postId
+			}
+			$http.post('api/posts/createReply', request).success(function(response){
 			}).error(function(err){
 				console.log(err);
 			})

@@ -14,10 +14,10 @@ module.exports.removePost = function(req, res){
 	var postId = req.body._id;
 	Post.remove({ _id: postId }, function(err) {
     if (!err) {
-            
+         //success   
     }
     else {
-          
+        //failure  
     }
 });
 }
@@ -30,6 +30,31 @@ module.exports.createComment = function(req, res){
 	Post.update({_id: id },
          {$push: { 'comments' : comment }},{upsert:true}, function(err, data) { 
 });
+}
+
+module.exports.createReply = function(req, res){
+	var postId = req.body.postId;
+	var commentId = req.body.commentId;
+	var reply = req.body.reply;
+	console.log(reply);
+	Post.findById(postId, function( err, post ) {
+        for(i in post.comments){
+    	if(post.comments[i]._id == commentId){
+    		console.log(post.comments[i].children);
+        	post.comments[i].children.push({body: reply});
+        	post.save(function(err){
+			if(err){
+				console.log('Fail');
+				res.json({status:500});
+			}
+			else{
+                console.log("save successful");                   
+                res.json({status: 200})
+            }
+		});
+    	}
+	}	
+	});
 }
 
 module.exports.getPosts = function(req, res){

@@ -1,14 +1,19 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose')
+  , Schema = mongoose.Schema;
 
-module.exports = mongoose.model('Post', {
+var Comments = new Schema({
+	body      : String
+  , date      : Date
+});
+
+Comments.add({ children: [Comments] });
+
+var Post = new Schema({
 	title : String,
 	author : String, 
 	body : String,
 	votes : { type: Number, default: 0 },
-	comments : [{
-		author: String,
-		body: String
-	}]
+	comments : [Comments]
 });
 
-
+module.exports = mongoose.model('Post', Post);

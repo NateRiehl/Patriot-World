@@ -39,6 +39,7 @@ app.post('/api/profile/updateBio', profileController.updateBio);
 //Posts
 app.post('/api/posts/create', postController.createPost);
 app.post('/api/posts/createComment', postController.createComment);
+app.post('/api/posts/createReply', postController.createReply);
 app.get('/api/posts', postController.getPosts);
 app.get('/api/posts/post', postController.getPost);
 app.post('/api/posts/upvote', postController.upvote);

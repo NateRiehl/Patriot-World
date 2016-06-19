@@ -5,9 +5,13 @@
 
 	<input type='text' ng-blur='createComment(post._id)' ng-model='comment'> Write a comment </input>
 		<div ng-repeat='comment in post.comments'>
-			<div class='row' style='height:50px; border: solid;'>
+			<div class='row' style='height:100px; border: solid;'>
 				Comment: {{comment.body}}
+				<input type='text' ng-model='replyText' ng-blur='reply(post._id, comment._id, replyText)' > Write a reply </input>
 			</div>
+				<div class='row' ng-repeat='child in comment.children' style='margin-left: 30%; width: 60%; height: 50px; border: solid;'>
+					<p style=''>{{child.body}}</p>
+				</div>
 		</div>	
 	</div>
 </div>
