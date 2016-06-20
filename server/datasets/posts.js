@@ -12,6 +12,7 @@ var Post = new Schema({
 	title : String,
 	author : String, 
 	body : String,
+	link : String,
 	votes : { type: Number, default: 0 },
 	comments : [Comments]
 });

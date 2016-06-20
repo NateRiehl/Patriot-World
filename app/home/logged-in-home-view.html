@@ -5,10 +5,12 @@
 		{{post.votes}}
 
 	<h1 class="text-left" style='margin-left: 10px'> 
-		<a style='' ui-sref='my-post({id: post._id})'>{{ post.title }}</a> 
+		<a ng-if='post.link == undefined' style='' ui-sref='my-post({id: post._id})'>{{ post.title }}</a> 
+		<a ng-if='post.link != undefined' style='' href='{{post.link}}'>{{ post.title }}</a> 
 	</h1>
 	<button ng-click='upvote(post)' class = "btn btn-primary btn-sm"> Upvote </button>
 	<button ng-click='remove(post)' class = "btn btn-primary btn-sm"> remove </button>
+	<a ui-sref='editProfile'> {{post.author}} </a>
 	</div>
 </div>
 </div>

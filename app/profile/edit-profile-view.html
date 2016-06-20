@@ -1,13 +1,33 @@
-<div class='col-sm-8 col-sm-offset-2'>
+<div class='col-sm-2'>
+	<div class='row' style='border:solid;'>
+		Profile Picture..
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+	<div class = 'row'>  
+ 		<button class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" >
+ 			Upload Photo
+ 		</button>
+	</div>
+	<div class='row'>
+		Update Username:
+		<input class='form-control' ng-model='user.username' ng-blur='updateUsername()'>
+	</div>
 
-<div class = 'row'>   <div class="btn" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" >Select</div>
+	<div class='row'>
+		Update Bio:
+		<textarea class='form-control' ng-model='user.bio' ng-blur='updateBio()'> </textarea>
+	</div>
+</div>
 
-</div>
-<div class='row'>
-	<input class='form-control' ng-model='user.username' ng-blur='updateUsername()'>
-</div>
-
-<div class='row'>
-	<textarea class='form-control' ng-model='user.bio' ng-blur='updateBio()'> </textarea>
-</div>
+<div class = 'col-sm-6 col-sm-offset-2' style='border:solid;'>
+	<div class='row row-offset-8'>
+		Bio
+	</div>
 </div>

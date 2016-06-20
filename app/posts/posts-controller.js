@@ -7,7 +7,6 @@
           	$scope.post = res.data;          
         	});
 		}
-		var test = localStorage.getItem('User-Data');
 			$scope.createNewPost = function(){
 			
 			$scope.post.author = JSON.parse(localStorage.getItem('User-Data')).id; //Add user's id
