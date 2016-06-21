@@ -29,6 +29,8 @@ module.exports.createComment = function(req, res){
 	var comment = {'body' : body};
 	Post.update({_id: id },
          {$push: { 'comments' : comment }},{upsert:true}, function(err, data) { 
+         	console.log(data);
+        res.send(data); 	
 });
 }
 
@@ -46,6 +48,7 @@ module.exports.createReply = function(req, res){
 			if(err){
 				console.log('Fail');
 				res.json({status:500});
+
 			}
 			else{
                 console.log("save successful");                   

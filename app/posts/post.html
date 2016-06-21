@@ -3,13 +3,23 @@
 	<p> <strong>{{post.title}}</strong> </p>
 	<p> {{post.body}} </p>
 	{{post.link}}
-	<input type='text' ng-blur='createComment(post._id)' ng-model='comment'> Write a comment </input>
+	<form ng-submit='createComment(post._id)' id='commentForm'>
+		<input type='text' ng-model='comment'> 
+		<button type='submit' class='btn btn-primary' form='commentForm'> Post Comment </button>
+	</form>
 		<div ng-repeat='comment in post.comments'>
-			<div class='row' style='height:100px; border: solid;'>
-				Comment: {{comment.body}}
-				<input type='text' ng-model='replyText' ng-blur='reply(post._id, comment._id, replyText)' > Write a reply </input>
+			<div class='row'>
+				<div class='well well-sm'>
+					<p class='col-sm-2'>
+						{{comment.body}}
+					</p>
+					<form ng-submit='reply(post._id, comment._id, replyText)' id='replyForm'>
+						<input type='text' ng-model='replyText'> 
+						<button class='btn btn-primary' type='submit' form='replyForm' > Reply </button>
+					</form>
+				</div>
 			</div>
-				<div class='row' ng-repeat='child in comment.children' style='margin-left: 30%; width: 60%; height: 50px; border: solid;'>
+				<div class='well well-sm' ng-repeat='child in comment.children' style='width:80%; margin-left: 20%;'>
 					<p style=''>{{child.body}}</p>
 				</div>
 		</div>	

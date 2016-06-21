@@ -7,6 +7,7 @@
           	$scope.post = res.data;          
         	});
 		}
+
 			$scope.createNewPost = function(){
 			
 			$scope.post.author = JSON.parse(localStorage.getItem('User-Data')).id; //Add user's id
@@ -18,14 +19,14 @@
 		}
 
 		$scope.createComment = function(id){
-			console.log('ID is ' + id);
 			var request = {
 				comment : $scope.comment,
 				id : id
 			}
-			$http.post('api/posts/createComment', request).success(function(response){
-			}).error(function(err){
-				console.log(err);
+			$http.post('api/posts/createComment', request).then(function(data){
+				$scope.post.comments.push({body: $scope.comment});
+			},function(data){
+				
 			})
 		}
 
